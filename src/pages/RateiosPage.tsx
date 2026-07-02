@@ -44,7 +44,7 @@ export function RateiosPage() {
       });
 
       setRateioSelecionado(response.data);
-      setMensagem('Rateio calculado com sucesso.');
+      setMensagem('Rateio calculado com sucesso. Se o envio de e-mail estiver habilitado, o resumo será enviado aos destinatários configurados.');
       await carregarRateios();
     } catch (error) {
       setErro(extrairMensagemErro(
