@@ -1,5 +1,7 @@
 # GasRateio Web
 
+![Frontend CI](https://github.com/armandorodrigues/gas-rateio-web/actions/workflows/frontend-ci.yml/badge.svg)
+
 Frontend do **Sistema de Rateio de Gás Condominial**, desenvolvido em React com TypeScript.
 
 Este projeto faz parte de uma aplicação full stack criada para resolver um problema real de condomínio: dividir corretamente o valor da conta de gás entre duas torres com base no consumo registrado por medidores secundários.
