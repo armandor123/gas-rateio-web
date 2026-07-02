@@ -271,7 +271,7 @@ export function AnalisesPage() {
                       dataKey="value"
                       nameKey="name"
                       outerRadius={110}
-                      label={(item) => `${item.name}: ${formatarPercentual(item.percentual)}`}
+                      label={(item) => `${item.name}: ${formatarPercentual((item.percent ?? 0) * 100)}`}
                     >
                       {dadosPizzaUltimoRateio.map((item, index) => (
                         <Cell key={item.name} fill={CORES[index % CORES.length]} />
