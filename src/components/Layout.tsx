@@ -19,6 +19,7 @@ export function Layout() {
           <NavLink to="/leituras">Leituras</NavLink>
           <NavLink to="/contas-mensais">Contas Mensais</NavLink>
           <NavLink to="/rateios">Rateios</NavLink>
+          <NavLink to="/analises">Análises</NavLink>
         </nav>
       </aside>
 

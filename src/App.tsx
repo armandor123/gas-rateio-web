@@ -6,6 +6,7 @@ import { MedidoresPage } from './pages/MedidoresPage';
 import { LeiturasPage } from './pages/LeiturasPage';
 import { ContasMensaisPage } from './pages/ContasMensaisPage';
 import { RateiosPage } from './pages/RateiosPage';
+import { AnalisesPage } from './pages/AnalisesPage';
 
 export default function App() {
   return (
@@ -17,6 +18,7 @@ export default function App() {
         <Route path="leituras" element={<LeiturasPage />} />
         <Route path="contas-mensais" element={<ContasMensaisPage />} />
         <Route path="rateios" element={<RateiosPage />} />
+        <Route path="analises" element={<AnalisesPage />} />
       </Route>
     </Routes>
   );
