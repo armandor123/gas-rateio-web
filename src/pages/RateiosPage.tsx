@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import type { FormEvent } from 'react';
 import { api } from '../services/api';
 import type { Rateio } from '../types/api';
+import { extrairMensagemErro } from '../utils/error';
 
 export function RateiosPage() {
   const [rateios, setRateios] = useState<Rateio[]>([]);
@@ -17,8 +18,11 @@ export function RateiosPage() {
       setErro('');
       const response = await api.get<Rateio[]>('/rateios');
       setRateios(response.data);
-    } catch {
-      setErro('Não foi possível carregar os rateios. Verifique se a API está rodando.');
+    } catch (error) {
+      setErro(extrairMensagemErro(
+        error,
+        'Não foi possível carregar os rateios. Verifique se a API está rodando.',
+      ));
     }
   }
 
@@ -42,9 +46,11 @@ export function RateiosPage() {
       setRateioSelecionado(response.data);
       setMensagem('Rateio calculado com sucesso.');
       await carregarRateios();
-    } catch (error: any) {
-      const mensagemApi = error?.response?.data?.mensagem || error?.response?.data?.message;
-      setErro(mensagemApi || 'Erro ao calcular rateio.');
+    } catch (error) {
+      setErro(extrairMensagemErro(
+        error,
+        'Erro ao calcular rateio. Se o rateio já existir, use a opção "Buscar por mês".',
+      ));
     } finally {
       setLoading(false);
     }
@@ -64,9 +70,11 @@ export function RateiosPage() {
       const response = await api.get<Rateio>(`/rateios/${mesReferencia}`);
       setRateioSelecionado(response.data);
       setMensagem('Rateio encontrado com sucesso.');
-    } catch (error: any) {
-      const mensagemApi = error?.response?.data?.mensagem || error?.response?.data?.message;
-      setErro(mensagemApi || 'Rateio não encontrado para o mês informado.');
+    } catch (error) {
+      setErro(extrairMensagemErro(
+        error,
+        'Rateio não encontrado para o mês informado.',
+      ));
     } finally {
       setLoading(false);
     }
