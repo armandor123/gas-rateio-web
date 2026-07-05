@@ -68,6 +68,40 @@ Exibe gráficos para acompanhamento de:
 - consumo por torre;
 - divisão financeira do último rateio.
 
+
+---
+
+## Capturas de tela
+
+### Dashboard
+
+![Dashboard](docs/images/dashboard.png)
+
+### Torres
+
+![Torres](docs/images/torres.png)
+
+### Medidores
+
+![Medidores](docs/images/medidores.png)
+
+### Leituras
+
+![Leituras](docs/images/leituras.png)
+
+### Contas Mensais
+
+![Contas Mensais](docs/images/contas-mensais.png)
+
+### Rateios
+
+![Rateios](docs/images/rateios.png)
+
+### Análises
+
+![Análises](docs/images/analises.png)
+
+
 ---
 
 ## Tecnologias utilizadas
@@ -283,4 +317,40 @@ Este projeto demonstra conhecimentos em:
 ## Autor
 
 Desenvolvido por **Armando Rodrigues** como projeto de portfólio full stack.
+
+
+---
+
+## Rodando com Docker
+
+O frontend também pode ser executado com Docker utilizando Nginx para servir o build de produção.
+
+### Build da imagem
+
+```bash
+docker build --build-arg VITE_API_URL=http://localhost:8080 -t gas-rateio-web .
+```
+
+### Rodar o container
+
+```bash
+docker run --rm --name gas-rateio-web -p 5173:80 gas-rateio-web
+```
+
+Acesse:
+
+```text
+http://localhost:5173
+```
+
+### Observação sobre rotas
+
+O projeto utiliza React Router. Por isso, o Nginx foi configurado com fallback para `index.html`, permitindo acessar diretamente rotas como:
+
+```text
+/torres
+/medidores
+/rateios
+/analises
+```
 
